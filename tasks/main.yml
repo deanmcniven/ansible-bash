@@ -3,5 +3,5 @@
 - include: increased-history.yml
 - include: ignore-history.yml
 - include: collapse-multiline.yml
-- include: universal_history.yml
+- include: universal-history.yml
 
