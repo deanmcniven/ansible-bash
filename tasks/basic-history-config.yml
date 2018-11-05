@@ -1,0 +1,17 @@
+---
+- name: Set Bash Duplicate Handling
+  become: false
+  lineinfile:
+    path: "{{ local_user_homedir }}/.bashrc"
+    regexp: '^HISTCONTROL=.*$'
+    line: 'HISTCONTROL=ignoreboth'
+    state: present
+
+- name: Set Bash History Appending
+  become: false
+  lineinfile:
+    path: "{{ local_user_homedir }}/.bashrc"
+    regexp: '^shopt -s histappend$'
+    line: 'shopt -s histappend'
+    state: present
+

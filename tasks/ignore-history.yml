@@ -1,0 +1,10 @@
+---
+- name: Set Bash History Ignore List
+  become: false
+  lineinfile:
+    path: "{{ local_user_homedir }}/.bashrc"
+    regexp: '^HISTIGNORE=.*$'
+    line: "HISTIGNORE='{{ bash_history_ignore_commands | join(':') }}'"
+    state: present
+  when: bash_ignore_commands
+

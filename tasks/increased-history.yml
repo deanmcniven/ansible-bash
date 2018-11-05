@@ -1,0 +1,19 @@
+---
+- name: Set Bash History Size
+  become: false
+  lineinfile:
+    path: "{{ local_user_homedir }}/.bashrc"
+    regexp: '^HISTSIZE=\d+$'
+    line: "HISTSIZE={{ bash_max_history }}"
+    state: present
+  when: bash_increased_history
+
+- name: Set Bash History File Size
+  become: false
+  lineinfile:
+    path: "{{ local_user_homedir }}/.bashrc"
+    regexp: '^HISTFILESIZE=\d+$'
+    line: "HISTFILESIZE={{ bash_max_filesize }}"
+    state: present
+  when: bash_increased_history
+

@@ -1,0 +1,10 @@
+---
+- name: Set Bash Collapse Multiline Command
+  become: false
+  lineinfile:
+    path: "{{ local_user_homedir }}/.bashrc"
+    regexp: '^shopt -s cmdhist$'
+    line: 'shopt -s cmdhist'
+    state: present
+  when: bash_collapse_multiline
+

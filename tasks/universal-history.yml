@@ -1,0 +1,10 @@
+---
+- name: Store and Reload Bash History Immediately
+  become: false
+  lineinfile:
+    path: "{{ local_user_homedir }}/.bashrc"
+    regexp: '^PROMPT_COMMAND=.*$'
+    line: 'PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"'
+    state: present
+  when: bash_history_sharing
+

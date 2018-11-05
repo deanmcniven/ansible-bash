@@ -1,3 +1,12 @@
 ---
 bash_max_history: 1000000
 bash_max_filesize: 1000000
+bash_history_ignore_commands:
+  - ls
+  - history
+
+bash_collapse_multiline: true
+bash_history_sharing: true
+bash_ignore_commands: true
+bash_increased_history: true
+
